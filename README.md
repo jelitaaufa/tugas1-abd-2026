@@ -9,7 +9,7 @@ Template untuk Tugas 1 mata kuliah Analisis Big Data. Setelah repository GitHub 
 | Milestone 1 | Pertemuan 3 | Dataset >= 500 MB atau > 1 juta baris, `data/README.md`, dan `notebooks/01_data_profiling.ipynb` |
 | Milestone 2 | Pertemuan 5 | Cleaning dengan Polars dan profiling DuckDB `SUMMARIZE` |
 | Milestone 3 | Pertemuan 8 | Analisis temporal/ruang dan minimal 6 visualisasi interaktif |
-| Final | Pertemuan 10 | Minimal 5 insight, Dockerfile, dan dokumentasi akhir |
+| Final | Pertemuan 10 | Minimal 5 insight, Dockerfile, dan dokumentasi akhir. |
 
 ## Output yang Diharapkan
 
