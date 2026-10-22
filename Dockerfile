@@ -1,12 +1,15 @@
-FROM quay.io/jupyter/datascience-notebook:latest
+FROM python:3.12-slim
 
-USER root
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1
+
+WORKDIR /workspace
+
 COPY requirements.txt /tmp/requirements.txt
-RUN pip install --no-cache-dir -r /tmp/requirements.txt
+RUN python -m pip install --upgrade pip \
+    && python -m pip install -r /tmp/requirements.txt
 
-USER ${NB_UID}
-WORKDIR /home/jovyan/work
-COPY --chown=${NB_UID}:${NB_GID} . /home/jovyan/work
+EXPOSE 8888
 
-# Hanya untuk penggunaan lokal; akses JupyterLab tanpa password atau token.
-CMD ["start-notebook.py", "--ServerApp.token=", "--ServerApp.password="]
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root", "--ServerApp.root_dir=/workspace"]

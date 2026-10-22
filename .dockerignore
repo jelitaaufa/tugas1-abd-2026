@@ -1,0 +1,8 @@
+.git
+.git/**
+data/raw/
+data/processed/*.parquet
+**/__pycache__/
+**/.ipynb_checkpoints/
+*.py[cod]
+*.local-backup.ipynb

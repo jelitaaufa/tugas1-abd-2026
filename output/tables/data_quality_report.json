@@ -1,0 +1,92 @@
+{
+  "dataset": "Corpus-Indonesia",
+  "source_url": "https://huggingface.co/datasets/Lyon28/Corpus-Indonesia",
+  "source_license_as_documented": "Apache-2.0 (sesuai metadata yang terlihat; verifikasi ketentuan sumber sebelum redistribusi)",
+  "source_directory": "data/raw/corpus-indonesia/data/",
+  "source_file_count": 7,
+  "source_size_bytes": 1900362972,
+  "polars_version": "2.0.0",
+  "duckdb_version": "1.5.6",
+  "schema": {
+    "text": "String"
+  },
+  "before_cleaning": {
+    "total_baris": 19483721,
+    "text_null": 0,
+    "text_kosong_atau_spasi": 1000001,
+    "jumlah_nilai_unik": 18483721,
+    "duplikasi_berlebih_total": 1000000,
+    "duplikasi_berlebih_di_luar_null_kosong": 0
+  },
+  "length_distribution": [
+    {
+      "kategori": "00: kosong",
+      "jumlah": 1000001
+    },
+    {
+      "kategori": "01: 1-50",
+      "jumlah": 5108580
+    },
+    {
+      "kategori": "02: 51-100",
+      "jumlah": 4389391
+    },
+    {
+      "kategori": "03: 101-250",
+      "jumlah": 5174483
+    },
+    {
+      "kategori": "04: 251-500",
+      "jumlah": 3045473
+    },
+    {
+      "kategori": "05: 501-1000",
+      "jumlah": 553045
+    },
+    {
+      "kategori": "06: >1000",
+      "jumlah": 212748
+    }
+  ],
+  "duplicate_analysis": {
+    "total_rows": 19483721,
+    "unique_text_values": 18483721,
+    "duplicate_excess": 1000000,
+    "blank_rows": 1000001,
+    "unique_blank_values": 1,
+    "blank_duplicate_excess": 1000000,
+    "null_rows": 0,
+    "other_duplicate_excess": 0,
+    "duplicate_excess_percentage": 5.1325
+  },
+  "notes": [
+    "Teks panjang tidak otomatis dianggap rusak.",
+    "Teks kosong perlu ditangani pada Milestone 2.",
+    "Aturan deduplikasi mengikuti hasil pemeriksaan duplikasi non-kosong."
+  ],
+  "duckdb_summarize_file": "output/tables/duckdb_summarize_raw.csv",
+  "cleaning_rules": [
+    "Hapus baris text bernilai null.",
+    "Hapus baris text kosong atau hanya whitespace.",
+    "Pertahankan isi teks nonkosong apa adanya.",
+    "Deduplikasi global tambahan tidak diperlukan berdasarkan profiling: kelebihan duplikasi dijelaskan oleh nilai null/kosong yang dikeluarkan.",
+    "Validasi ulang null, teks kosong, dan duplikasi setelah cleaning."
+  ],
+  "after_cleaning": {
+    "total_baris_hasil": 18483720,
+    "text_null_hasil": 0,
+    "text_kosong_atau_spasi_hasil": 0,
+    "jumlah_nilai_unik_hasil": 18483720,
+    "panjang_min_karakter": 1,
+    "panjang_maks_karakter": 180383,
+    "panjang_rata_rata": 170.08360097426277
+  },
+  "rows_removed_total": 1000001,
+  "rows_removed_null": 0,
+  "rows_removed_blank_or_whitespace": 1000001,
+  "rows_removed_additional_exact_duplicates": 0,
+  "rows_after_cleaning": 18483720,
+  "cleaned_file": "data/processed/corpus_indonesia_cleaned.parquet",
+  "cleaned_file_size_bytes": 1195853660,
+  "duckdb_summarize_cleaned_file": "output/tables/duckdb_summarize_cleaned.csv"
+}
